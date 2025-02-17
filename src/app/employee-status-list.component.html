@@ -1,0 +1,26 @@
+<div class="grid-container">
+    <dx-data-grid [dataSource]="employeeStatuses" (onRowClick)="editEmployeeStatus($event.data)">
+      <dxi-column dataField="id" caption="ID"></dxi-column>
+      <dxi-column dataField="employeeStatusName" caption="Status Name"></dxi-column>
+      <dxi-column dataField="employeeStatusType" caption="Status Type"></dxi-column>
+      <dxi-column dataField="duration" caption="Duration"></dxi-column>
+      <dxi-column dataField="isPKWTCompensation" caption="PKWT Compensation"></dxi-column>
+      <dxi-column dataField="isProbation" caption="Probation"></dxi-column>
+      <dxi-column dataField="isUsed" caption="Used"></dxi-column>
+      <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true"></dxo-editing>
+    </dx-data-grid>
+  </div>
+  
+  <div class="form-container">
+    <dx-text-box [(value)]="currentEmployeeStatus.employeeStatusName" placeholder="Status Name"></dx-text-box>
+    <dx-text-box [(value)]="currentEmployeeStatus.employeeStatusType" placeholder="Status Type"></dx-text-box>
+    <dx-text-box [(value)]="currentEmployeeStatus.duration" placeholder="Duration"></dx-text-box>
+    <dx-check-box [(value)]="currentEmployeeStatus.isPKWTCompensation" text="PKWT Compensation"></dx-check-box>
+    <dx-check-box [(value)]="currentEmployeeStatus.isProbation" text="Probation"></dx-check-box>
+    <dx-check-box [(value)]="currentEmployeeStatus.isUsed" text="Used"></dx-check-box>
+  
+    <div class="button-container">
+      <dx-button text="Add" (onClick)="addEmployeeStatus()"></dx-button>
+      <dx-button text="Update" (onClick)="updateEmployeeStatus()"></dx-button>
+    </div>
+</div>
